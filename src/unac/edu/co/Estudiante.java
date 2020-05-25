@@ -1,52 +1,43 @@
 package unac.edu.co;
 
-public class Estudiante {
-    long code;
-    String name;
-    String correo;
+    public class Estudiante implements Comparar {
+        long Codigo;
+        String Nombre;
+        String Correo;
 
-    public Estudiante(){
-        this(0,null,null);
+        public Estudiante() {
+            this(0, null, null);
+        }
+        public Estudiante(long codi, String nom, String corr) {
+            Codigo = codi;
+            Nombre = nom;
+            Correo = corr;
+        }
+        public String toString() {
+            if (Nombre != null) {
+                return Codigo + " " + Nombre + " ";
+            } else {
+                return "No está asignado";
+            }
+        }
+        public boolean menorQue(Object op2) {
+            Estudiante p2 = (Estudiante) op2;
+            return Codigo < p2.Codigo;
+        }
+        public boolean menorIgualQue(Object op2) {
+            Estudiante p2 = (Estudiante) op2;
+            return Codigo <= p2.Codigo;
+        }
+        public boolean mayorQue(Object op2) {
+            Estudiante p2 = (Estudiante) op2;
+            return Codigo > p2.Codigo;
+        }
+        public boolean mayorIgualQue(Object op2) {
+            Estudiante p2 = (Estudiante) op2;
+            return Codigo >= p2.Codigo;
+        }
+        public boolean igualQue(Object op2) {
+            Estudiante p2 = (Estudiante) op2;
+            return Codigo == p2.Codigo;
+        }
     }
-
-    public Estudiante(long code, String name, String correo) {
-        this.code = code;
-        this.name = name;
-        this.correo = correo;
-    }
-
-
-
-    public String toString(){
-        if (name != null)
-            return code + " " + name + " ";
-        else
-            return "No asignado";
-    }
-
-    public boolean menorQue(Object op2) {
-        Estudiante p2 = (Estudiante) op2;
-        return code < p2.code;
-    }
-
-    public boolean menorIgualQue(Object op2){
-        Estudiante p2 = (Estudiante) op2;
-        return code <= p2.code;
-    }
-
-    public boolean mayorQue(Object op2){
-        Estudiante p2 = (Estudiante) op2;
-        return code > p2.code;
-    }
-
-    public boolean mayorIgualQue(Object op2){
-        Estudiante p2 = (Estudiante) op2;
-        return code >= p2.code;
-    }
-
-    public boolean igualQue(Object op2){
-        Estudiante p2 = (Estudiante) op2;
-        return code == p2.code;
-    }
-
-}
